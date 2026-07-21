@@ -8,17 +8,22 @@ export function SearchForm() {
   return (
     <form
   action="/search"
-  className="mx-auto flex w-full max-w-xl gap-2"
+  className="mx-auto mt-8 flex w-full max-w-2xl items-center gap-3"
     >
         <Input
             name="q"
-            placeholder="Search by title, author, or subject..."
+            placeholder="Search books, authors or subjects..."
             autoComplete="off"
             required
+            className="h-12 rounded-xl text-base shadow-sm"
         />
 
-        <Button type="submit">
-            <Search className="size-4" />
+        <Button 
+          type="submit"
+          size="lg"
+          className="h-12 rounded-xl px-6"
+        >
+            <Search className="size-5" />
         </Button>
     </form>
   );

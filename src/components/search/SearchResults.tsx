@@ -16,9 +16,11 @@ export async function SearchResults({
   return (
     <div>
        <div className="mb-6 flex items-center justify-between text-sm text-muted-foreground">
+          <h1 className="text-3xl font-bold">
+            Results for &quot;{query}&quot;
+        </h1>
           <p>{result.total.toLocaleString()} books found</p>
-          <p>Page {result.page}</p>
-      </div>
+        </div>
       <BookGrid books={result.books} />
        <Pagination
           query={query}

@@ -15,3 +15,27 @@ export const OpenLibrarySearchSchema = z.object({
 
 export type OpenLibraryBook =
   z.infer<typeof OpenLibraryBookSchema>;
+
+export const OpenLibraryBookDetailsSchema = z.object({
+  key: z.string(),
+  title: z.string(),
+
+  description: z
+    .union([
+      z.string(),
+      z.object({
+        value: z.string(),
+      }),
+    ])
+    .optional(),
+
+  covers: z.array(z.number()).optional(),
+
+  subjects: z.array(z.string()).optional(),
+
+  first_publish_date: z.string().optional(),
+});
+
+export type OpenLibraryBookDetails = z.infer<
+  typeof OpenLibraryBookDetailsSchema
+>;

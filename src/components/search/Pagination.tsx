@@ -16,7 +16,8 @@ export function Pagination({
     const hasPrevious = currentPage > 1;
     const hasNext = currentPage < totalPages;
   return (
-    <div className="mt-8 flex justify-between">
+    <div className="mt-8 grid grid-cols-3 items-center">
+    <div>
       {hasPrevious && (
         <Link
           href={`/search?q=${query}&page=${currentPage - 1}`}
@@ -25,11 +26,17 @@ export function Pagination({
           Previous
         </Link>
       )}
-       <PageNumbers 
+    </div>
+
+    <div className="flex justify-center">
+      <PageNumbers
         query={query}
         currentPage={currentPage}
         total={totalPages * 100}
-       />
+      />
+    </div>
+
+    <div className="flex justify-end">
       {hasNext && (
         <Link
           href={`/search?q=${query}&page=${currentPage + 1}`}
@@ -39,5 +46,6 @@ export function Pagination({
         </Link>
       )}
     </div>
+  </div>
   );
 }
